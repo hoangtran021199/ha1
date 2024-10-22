@@ -114,5 +114,19 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("xxx")
+    void testX() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(4);
+        calc.pressClearKey();
+
+        String expected = "5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
