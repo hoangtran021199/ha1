@@ -96,12 +96,23 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressDigitKey(7);
 
-        calc.readScreen();
         String expected = "7";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("should return positive number")
+    void testNegativeNumber() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(0);
+        calc.pressNegativeKey();
+
+        String expected = "0";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
