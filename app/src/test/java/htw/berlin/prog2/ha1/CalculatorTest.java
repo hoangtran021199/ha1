@@ -90,5 +90,18 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName("should return the screen")
+    void testScreen() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(7);
+
+        calc.readScreen();
+        String expected = "7";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
