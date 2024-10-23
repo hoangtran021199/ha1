@@ -116,8 +116,8 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("xxx")
-    void testX() {
+    @DisplayName("clear everything on second press")
+    void testClearAll() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
         calc.pressDigitKey(4);
@@ -128,6 +128,24 @@ class CalculatorTest {
         String expected = "0";
         String actual = calc.readScreen();
         String expected2 = "";
+        String actual2 = calc.latestOperation;
+
+        assertEquals(expected2, actual2);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("clear screen on 1 press")
+    void testClearScreen() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(4);
+        calc.pressBinaryOperationKey("+");
+        calc.pressClearKey();
+
+        String expected = "0";
+        String actual = calc.readScreen();
+        String expected2 = "+";
         String actual2 = calc.latestOperation;
 
         assertEquals(expected2, actual2);
