@@ -12,8 +12,9 @@ public class Calculator {
 
     private double latestValue;
 
-    private String latestOperation = "";
+    public String latestOperation = "";
 
+    public int count = 0;
     /**
      * @return den aktuellen Bildschirminhalt als String
      */
@@ -45,9 +46,18 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+
+        if(count == 0) {
+            count++;
+            screen = "0";
+            return;
+        }
+        if(count > 0) {
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+            count = 0;
+        }
     }
 
     /**

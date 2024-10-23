@@ -121,11 +121,16 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
         calc.pressDigitKey(4);
+        calc.pressBinaryOperationKey("+");
+        calc.pressClearKey();
         calc.pressClearKey();
 
-        String expected = "5";
+        String expected = "0";
         String actual = calc.readScreen();
+        String expected2 = "";
+        String actual2 = calc.latestOperation;
 
+        assertEquals(expected2, actual2);
         assertEquals(expected, actual);
     }
 }
